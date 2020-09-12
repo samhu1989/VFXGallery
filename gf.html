@@ -22,11 +22,21 @@ canvas {
 }</style>
 </head>
 <body>
-
+<div id="Stats-output"></div>
 <canvas></canvas>
-
-<script>
+<script src="./gf.vs" type="x-shader/x-vertex"></script>
+<script type="module">
+import * as Stats from "./stats.js"
 var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
+
+var stats = new Stats();
+stats.setMode(0);
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+//将统计对象添加到对应的<div>元素中
+document.getElementById("Stats-output").appendChild(stats.domElement);
+
 
 var canvas = document.getElementsByTagName('canvas')[0];
 canvas.width = canvas.clientWidth;
@@ -345,7 +355,7 @@ update();
 
 function update() {
     resizeCanvas();
-
+    stats.update();
     var dt = Math.min((Date.now() - lastTime) / 1000, 0.016);
     lastTime = Date.now();
 
@@ -518,7 +528,8 @@ window.addEventListener('touchend', function (e) {
         for (var j = 0; j < pointers.length; j++) {
             if (touches[i].identifier == pointers[j].id)
             pointers[j].down = false;}}
-});</script>
+});
+</script>
 
 </body>
 </html>
