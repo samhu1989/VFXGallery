@@ -37,11 +37,6 @@ stats.domElement.style.top = '0px';
 //将统计对象添加到对应的<div>元素中
 document.getElementById("Stats-output").appendChild(stats.domElement);
 
-
-var canvas = document.getElementsByTagName('canvas')[0];
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
-
 var config = {
     TEXTURE_DOWNSAMPLE: 1,
     DENSITY_DISSIPATION: 0.98,
@@ -51,11 +46,15 @@ var config = {
     CURL: 30,
     SPLAT_RADIUS: 0.005 };
 
+var canvas = document.getElementsByTagName('canvas')[0];
+canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
 
 var pointers = [];
-var splatStack = [];var _getWebGLContext =
-
-getWebGLContext(canvas),gl = _getWebGLContext.gl,ext = _getWebGLContext.ext;
+var splatStack = [];
+var _getWebGLContext = getWebGLContext(canvas);
+var gl = _getWebGLContext.gl;
+var ext = _getWebGLContext.ext;
 
 function getWebGLContext(canvas) {
     var params = { alpha: false, depth: false, stencil: false, antialias: false };
