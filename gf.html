@@ -210,7 +210,6 @@ function getScriptTextContent(script)
 }
 
 var baseVertexShaderText = getScriptTextContent(document.getElementById("vs"));
-alert(baseVertexShaderText);
 
 var baseVertexShader = compileShader(gl.VERTEX_SHADER,baseVertexShaderText);
 
