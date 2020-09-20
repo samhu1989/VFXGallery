@@ -28,6 +28,8 @@ sRGB标准规定的变换函数：
 
 ![sRGB_gamma](./img/sRGB_gamma.png)
 
+gamma 2.2的变换函数：
+
 ![gamma22](./img/gamma22.png)
 
 sRGB标准之所以定义一个线性的分段是为了让对应的gamma校正变换在0处的斜率不是无穷大。
