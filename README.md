@@ -25,6 +25,7 @@
 - **sRGB 的亮度映射不是gamma 2.2但是非常接近，工程上认为没有区别。**
 
 sRGB标准规定的变换函数：
+
 $$
 y=\left\{  
              \begin{array}{**lr**}  
@@ -34,7 +35,9 @@ y=\left\{
              \end{array}  
 \right.
 $$
+
 gamma 2.2 变换函数:
+
 $$
 y = x^{2.2}
 $$
