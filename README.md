@@ -20,33 +20,21 @@
 
 这使得sRGB内容直接显示在P3屏幕上也不会太糟糕，因为人眼对亮度更敏感，对颜色相对没有那么敏感。但是，**会出现颜色过饱和的问题**。比如，绿色显示的比实际的更绿，因为显示的时候sRGB的元绿色被强行显示为P3色域的元绿色，而P3色域是比sRGB要大，涵盖了更绿的绿色。这一点从下面的色域图可以看出。
 
-![colorspace](./colorspace.jpg)
+![colorspace](./img/colorspace.jpg)
 
 - **sRGB 的亮度映射不是gamma 2.2但是非常接近，工程上认为没有区别。**
 
 sRGB标准规定的变换函数：
 
-$$
-y=\left\{  
-             \begin{array}{**lr**}  
-              \frac{x}{12.92}&x \leq 0.0031308  \\  
-             
-              (\frac{x+0.055}{1.055})^{2.4}&x > 0.0031308    
-             \end{array}  
-\right.
-$$
+![sRGB_gamma](./img/sRGB_gamma.png)
 
-gamma 2.2 变换函数:
-
-$$
-y = x^{2.2}
-$$
+![gamma22](./img/gamma22.png)
 
 sRGB标准之所以定义一个线性的分段是为了让对应的gamma校正变换在0处的斜率不是无穷大。
 
 两者的差异如下图所示：（两条线几乎重合）
 
-![gamma](./gamma.png)
+![gamma](./img/gamma.png)
 
 - **sRGB 到 Display-P3需要做的变换如下：**
 
